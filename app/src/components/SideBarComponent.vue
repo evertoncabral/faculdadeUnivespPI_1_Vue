@@ -33,7 +33,7 @@
           <nav class="mb-3">
             <b-nav vertical>
               <b-nav-item active @click="hide">
-                <b-icon icon="person"></b-icon> Usuários</b-nav-item
+                <b-icon icon="person" href="usuarios.vue"  ></b-icon> Usuários</b-nav-item
               >
               <b-nav-item href="#link-1" @click="hide">
                 <b-icon icon="emoji-sunglasses"></b-icon> Eventos</b-nav-item
