@@ -26,6 +26,29 @@
           </b-form-group>
         </b-col>
       </b-row>
+
+      <h3>Dados Endereço</h3>
+      <hr />
+      <b-row>
+        <b-col md="6" sm="12">
+          <b-form-group label="Cidade: " label-form="cidade">
+          <b-form-input
+              v-model="form.cidade"
+              id="cidade"
+              placeholder="Nome Cidade"
+            >
+           </b-form-group>
+        </b-col>
+        <b-col md="6" sm="12">
+         <b-form-group label="Estado: " label-form="estado">
+         <b-form-input
+              v-model="form.estado"
+              id="estado"
+              placeholder="Nome Estado"
+            >
+           </b-form-group>
+            </b-col>
+      </b-row>
     </b-form>
   </div>
 </template>
@@ -36,8 +59,10 @@ export default {
   data() {
     return {
       form: {
-        nome,
-        email,
+        nome: "",
+        email: "",
+        cidade: "",
+        estado: "",
       },
     };
   },

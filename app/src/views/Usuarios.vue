@@ -1,18 +1,28 @@
 <template>
-  <div id="usuario">
-    <b-table sticky-header striped hover :itens="itens" :fields="fields">
-        <template v-slot:cell(actions)="data">
-        <b-button variant="primary" size="sm" @click="editar(data.id)">Editar</b-button>
-        <b-button variant="danger"  size="sm"  @click="deletar(data.id)">Remover</b-button>
-        
-        </template>
+  <div id="app" class="container mt-3">
+    <b-form inline>
+      <b-form-input class="mr-3" placeholder="Buscar" v-model="search">
+      </b-form-input>
 
+      <b-button title="Limpar Filtro" v-b-tooltip.hover></b-button>
+    </b-form>
+
+    <b-table sticky-header striped hover :itens="itens" :fields="fields">
+      <template v-slot:cell(actions)="data">
+        <b-button variant="primary" size="sm" @click="editar(data.id)"
+          >Editar</b-button
+        >
+        <b-button variant="danger" size="sm" @click="deletar(data.id)"
+          >Remover</b-button
+        >
+      </template>
     </b-table>
   </div>
 </template>
 
 <script>
 export default {
+  name: "App",
   data() {
     return {
       itens: [
@@ -57,30 +67,49 @@ export default {
         {
           key: "id",
           label: "id",
-           sortable:true,
+          sortable: true,
         },
         {
           key: "nome",
           label: "nome",
-           sortable:true,
+          sortable: true,
         },
         {
           key: "idade",
           label: "idade",
-           sortable:true,
+          sortable: true,
         },
         {
           key: "cidade",
           label: "cidade",
-          sortable:true,
+          sortable: true,
         },
         {
           key: "actions",
           label: "ações",
-      
         },
       ],
+      search: "",
+      selected: null,
     };
+  },
+  computed: {
+    itemsFiltered() {
+      let valores = [];
+
+      valores = this.itens.filter((item) => {
+        return item.nome.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ||
+        item.email.toLowerCase().indexOf(this.search.toLowerCase()) > -1||
+        item.cidade.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      });
+      return valores;
+    },
+  },
+  methods: {
+    limparFiltro() {
+      this.search = "";
+      this.selected = null;
+    },
   },
 };
 </script>
