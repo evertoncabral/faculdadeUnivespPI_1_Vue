@@ -14,7 +14,7 @@
           <div class="d-flex align-items-center flex-column">
           <b-avatar
             variant="primary"
-            text="PS"
+            text="ES"
             class="mb-3 mt-3"
             size="5rem"
           ></b-avatar>
