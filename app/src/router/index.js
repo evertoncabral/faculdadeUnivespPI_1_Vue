@@ -1,27 +1,38 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import home from "../views/Home.vue";
+import Usuarios from "../views/Usuarios.vue";
+import Eventos from "../views/Eventos.vue";
+import Sobre from "../views/Sobre.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "list",
-    component: List,
+    path: "/usuario",
+    name: "usuario",
+    component: Usuarios,
   },
   {
     path: "/form",
     name: "form",
     component: Form,
   },
+  {
+    path: "/eventos",
+    name: "eventos",
+    component: Eventos,
+  },
+  {
+    path: "/sobre",
+    name: "sobre",
+    component: Sobre,
+  },
 ];
 
 const router = new VueRouter({
-    mode: 'hostory',
-    base: process.env.BASE_URL,
-    routes
-})
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes,
+});
 
-
-export default router
+export default router;

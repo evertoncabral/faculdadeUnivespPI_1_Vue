@@ -1,5 +1,14 @@
 <template>
+
   <div id="app" class="container mt-3">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
     <b-form inline>
       <b-form-input class="mr-3" placeholder="Buscar" v-model="search">
       </b-form-input>

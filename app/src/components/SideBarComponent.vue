@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <b-sidebar
       id="sidebar-no-header"
       aria-labelledby="sidebar-no-header-title"
@@ -32,18 +32,19 @@
            <br />
           <nav class="mb-3">
             <b-nav vertical>
-              <b-nav-item active @click="hide">
-                <b-icon icon="person" href="usuarios.vue"  ></b-icon> Usuários</b-nav-item
+              <b-nav-item active to="/usuario" @click="hide">
+                <b-icon icon="person" to="/usuario"  ></b-icon> Usuários </b-nav-item
               >
-              <b-nav-item href="#link-1" @click="hide">
-                <b-icon icon="emoji-sunglasses"></b-icon> Eventos</b-nav-item
+              <b-nav-item to="/eventos" @click="hide">
+                <b-icon icon="emoji-sunglasses"></b-icon> Eventos </b-nav-item
               >
-              <b-nav-item href="#link-2" @click="hide"
+              <b-nav-item to="/sobre" @click="hide"
                 ><b-icon icon="book"></b-icon> Sobre Nós</b-nav-item
               >
             </b-nav>
           </nav>
           <b-button variant="primary" block @click="hide">FECHAR</b-button>
+          <router-view/>
         </div>
       </template>
     </b-sidebar>
