@@ -32,19 +32,20 @@
            <br />
           <nav class="mb-3">
             <b-nav vertical>
-              <b-nav-item active to="/usuario" @click="hide">
+              <b-nav-item active :href="/Usuarios/" @click="hide">
                 <b-icon icon="person" to="/usuario"  ></b-icon> Usuários </b-nav-item
               >
-              <b-nav-item to="/eventos" @click="hide">
+              <b-nav-item :href='/Eventos/' @click="hide">
                 <b-icon icon="emoji-sunglasses"></b-icon> Eventos </b-nav-item
               >
-              <b-nav-item to="/sobre" @click="hide"
+              <b-nav-item :href='/Sobre/' @click="hide"
                 ><b-icon icon="book"></b-icon> Sobre Nós</b-nav-item
               >
+              <b-nav-item to="/form">FormularioOOOoo</b-nav-item>
             </b-nav>
           </nav>
-          <b-button variant="primary" block @click="hide">FECHAR</b-button>
           <router-view/>
+          <b-button variant="primary" block @click="hide">FECHAR</b-button>
         </div>
       </template>
     </b-sidebar>

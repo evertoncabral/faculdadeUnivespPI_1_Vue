@@ -1,6 +1,6 @@
 <template>
 
-  <div id="app" class="container mt-3">
+  <div id="Usuarios" class="container mt-3">
   <br>
   <br>
   <br>
@@ -9,6 +9,7 @@
   <br>
   <br>
   <br>
+  <h1>oiiii 3</h1>
     <b-form inline>
       <b-form-input class="mr-3" placeholder="Buscar" v-model="search">
       </b-form-input>
@@ -31,7 +32,7 @@
 
 <script>
 export default {
-  name: "App",
+  name: "Usuarios",
   data() {
     return {
       itens: [
@@ -39,37 +40,37 @@ export default {
           id: 1,
           nome: "João Souza",
           idade: 20,
-          cidade: Itupeva,
+          cidade: "Itupeva",
         },
         {
           id: 2,
           nome: "Carlos Paiva",
           idade: 29,
-          cidade: Cabreúva,
+          cidade: "Cabreúva",
         },
         {
           id: 3,
           nome: "Maria Carla",
           idade: 30,
-          cidade: Louveira,
+          cidade: "Louveira",
         },
         {
           id: 4,
           nome: "Diego Ferreira",
           idade: 17,
-          cidade: Jundiaí,
+          cidade: "Jundiaí",
         },
         {
           id: 5,
           nome: "Renato Santos",
           idade: 22,
-          cidade: Itupeva,
+          cidade: "Itupeva",
         },
         {
           id: 6,
           nome: "Everton Silva",
           idade: 31,
-          cidade: Jundiaí,
+          cidade: "Jundiaí",
         },
       ],
       fields: [

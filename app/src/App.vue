@@ -3,7 +3,8 @@
     <nav-bar-component/>
     <side-bar-component></side-bar-component>
 
-    <router-view/> 
+
+    <!-- <router-view/>  -->
   </div>
 </template>
 
@@ -15,10 +16,10 @@ import SideBarComponent from './components/SideBarComponent.vue'
 export default {
   components:{
     NavBarComponent,
-    SideBarComponent
-    
+    SideBarComponent,
     
   }
+    
   
 }
 </script>
