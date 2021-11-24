@@ -9,7 +9,7 @@
           id="subject"
           v-model="form.subject"
           type="text"
-          placeholder="Ex: lavar carro"
+          placeholder="Ex: Nome do Evento"
           required
           autocomplete="off"
         ></b-form-input>
@@ -23,7 +23,7 @@
           id="description"
           v-model="form.description"
           type="text"
-          placeholder="Ex: preciso levar o carro para lavar"
+          placeholder="Ex: Descrição do evento / Responsável pelo Evento / local / data / horas / Links externos"
           required
           autocomplete="off"
         ></b-form-textarea>
@@ -38,7 +38,7 @@
 import ToastMixin from "@/mixins/toastMixin.js";
 
 export default {
-  name: "Form2",
+  name: "Form",
 
   mixins: [ToastMixin],
 
@@ -80,6 +80,3 @@ export default {
   }
 }
 </script>
-
-
-
