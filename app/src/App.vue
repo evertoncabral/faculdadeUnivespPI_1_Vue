@@ -4,7 +4,12 @@
     <side-bar-component></side-bar-component>
 
 
-    <!-- <router-view/>  -->
+
+
+
+ <router-view />
+
+
   </div>
 </template>
 

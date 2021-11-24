@@ -33,19 +33,21 @@
           <nav class="mb-3">
             <b-nav vertical>
               <b-nav-item active :href="/Usuarios/" @click="hide">
-                <b-icon icon="person" to="/usuario"  ></b-icon> Usuários </b-nav-item
+                <b-icon icon="person" to="/usuario"  ></b-icon> Lista Usuários </b-nav-item
+              >
+              
+              <b-nav-item :href='/Sobre/' @click="hide"
+                ><b-icon icon="book"></b-icon> Fale Conosco</b-nav-item
               >
               <b-nav-item :href='/Eventos/' @click="hide">
-                <b-icon icon="emoji-sunglasses"></b-icon> Eventos </b-nav-item
+                <b-icon icon="emoji-sunglasses"></b-icon> Eventos Publicados </b-nav-item
               >
-              <b-nav-item :href='/Sobre/' @click="hide"
-                ><b-icon icon="book"></b-icon> Sobre Nós</b-nav-item
-              >
-              <b-nav-item to="/form">FormularioOOOoo</b-nav-item>
+              <b-nav-item to="/form" @click="hide" >
+              <b-icon icon="emoji-sunglasses"></b-icon> Publicar Evento</b-nav-item>
             </b-nav>
           </nav>
-          <router-view/>
           <b-button variant="primary" block @click="hide">FECHAR</b-button>
+          <router-view/>
         </div>
       </template>
     </b-sidebar>
