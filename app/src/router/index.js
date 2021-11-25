@@ -4,6 +4,8 @@ import Usuarios from "../views/Usuarios.vue";
 import Eventos from "../views/Eventos.vue";
 import Sobre from "../views/Sobre.vue";
 import Form from "../views/Form.vue";
+import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
 
 Vue.use(VueRouter);
 
@@ -14,9 +16,19 @@ const routes = [
     component: Usuarios,
   },
   {
+    path: "/register",
+    name: "register",
+    component: Register
+  },
+  {
     path: "/form",
     name: "form",
     component: Form,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
   },
   {
     path: "/eventos",
@@ -35,5 +47,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  if (
+    to.name !== "login" &&
+    to.name !== "register" &&
+    !localStorage.getItem("authUser")
+  ) {
+    next({ name: "login" });
+  } else {
+    next();
+  }
+});
+
 
 export default router;

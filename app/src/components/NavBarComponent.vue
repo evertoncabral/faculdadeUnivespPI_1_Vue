@@ -32,10 +32,10 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template #button-content>
-              <em>Usuário Everton Silva Logado </em>
+              <em> Usuário Everton Silva Logado </em>
             </template>
             <b-dropdown-item href="#">Alterar Pefil</b-dropdown-item>
-            <b-dropdown-item href="#">Sair</b-dropdown-item>
+            <b-dropdown-item to="Login">Sair</b-dropdown-item>
           </b-nav-item-dropdown>
            
         </b-navbar-nav>

@@ -5,7 +5,8 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-
+import Vuelidate from "vuelidate";
+Vue.use(Vuelidate);
 
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -13,6 +14,10 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+
+import axios from "axios";
+import { Model } from "vue-api-query";
+Model.$http = axios;
 
 // Vue.use(Vuelidate);
 
