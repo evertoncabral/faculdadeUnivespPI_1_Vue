@@ -9,7 +9,6 @@
       <b-avatar> </b-avatar>
       <b-avatar> </b-avatar>
       <b-avatar> </b-avatar>
- 
     </div>
 
     <div class="mb-8 d-flex justify-contente-right mb-8">
@@ -52,33 +51,51 @@
         text="ES"
       >
       </b-avatar>
-       <b-avatar
-        src=""
-        text="ES"
-      >
-      </b-avatar>
+      <b-avatar src="" text="ES"> </b-avatar>
     </div>
 
     <br />
 
-    <b-form inline>
-      <b-form-input class="mr-3" placeholder="Buscar" v-model="search">
-      </b-form-input>
+    <h1 class="jumbotron">{{ message }}</h1>
+    <div class="col-2">
+      <label>Nome</label>
+      <input v-model="contact.name" />
 
-      <b-button title="Limpar Filtro" v-b-tooltip.hover></b-button>
-    </b-form>
-    <br />
+      <label>Telefone</label>
+      <input type="number" v-model="contact.telephone" />
+      <label>Função</label>
+      <input type="text" v-model="contact.funcao"  placeholder="Aluno / Professor"/>
 
-    <b-table sticky-header striped hover :itens="itens" :fields="fields">
-      <template v-slot:cell(actions)="data">
-        <b-button variant="primary" size="sm" @click="editar(data.id)"
-          >Editar</b-button
-        >
-        <b-button variant="danger" size="sm" @click="deletar(data.id)"
-          >Remover</b-button
-        >
-      </template>
-    </b-table>
+      <button class="mt-3 mb-3 btn btn-primary" @click="add()">
+        Adicionar
+      </button>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Telefone</th>
+          <th scope="col">Função</th>
+          <th scope="col">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in list" :key="item">
+          <th scope="row">{{ item.id }}</th>
+          <td>{{ item.name }}</td>
+          <td>{{ item.telephone }}</td>
+          <td>{{ item.funcao }}</td>
+          <td>
+            <button @click="edit(item)" class="btn btn-info">Editar</button>
+            <button @click="remove(item)" class="btn btn-danger">
+              Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -87,93 +104,46 @@ export default {
   name: "Usuarios",
   data() {
     return {
-      itens: [
-        {
-          id: 1,
-          nome: "João Souza",
-          idade: 20,
-          cidade: "Itupeva",
-        },
-        {
-          id: 2,
-          nome: "Carlos Paiva",
-          idade: 29,
-          cidade: "Cabreúva",
-        },
-        {
-          id: 3,
-          nome: "Maria Carla",
-          idade: 30,
-          cidade: "Louveira",
-        },
-        {
-          id: 4,
-          nome: "Diego Ferreira",
-          idade: 17,
-          cidade: "Jundiaí",
-        },
-        {
-          id: 5,
-          nome: "Renato Santos",
-          idade: 22,
-          cidade: "Itupeva",
-        },
-        {
-          id: 6,
-          nome: "Everton Silva",
-          idade: 31,
-          cidade: "Jundiaí",
-        },
-      ],
-      fields: [
-        {
-          key: "id",
-          label: "id",
-          sortable: true,
-        },
-        {
-          key: "nome",
-          label: "nome",
-          sortable: true,
-        },
-        {
-          key: "idade",
-          label: "idade",
-          sortable: true,
-        },
-        {
-          key: "cidade",
-          label: "cidade",
-          sortable: true,
-        },
-        {
-          key: "actions",
-          label: "ações",
-        },
-      ],
-      search: "",
-      selected: null,
+      message: "Adicione seu usuário e sua função",
+      contact: {
+        id: 0,
+        name: null,
+        telephone: null,
+        funcao: null,
+      },
+      index: null,
+      list: [],
     };
   },
-  computed: {
-    itemsFiltered() {
-      let valores = [];
 
-      valores = this.itens.filter((item) => {
-        return (
-          item.nome.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ||
-          item.email.toLowerCase().indexOf(this.search.toLowerCase()) > -1 ||
-          item.cidade.toLowerCase().indexOf(this.search.toLowerCase()) > -1
-        );
-      });
-      return valores;
+  methods: {
+    add() {
+      if (this.contact.id === 0) {
+        this.contact.id = this.list.length + 1;
+        this.list.push(this.contact);
+      } else {
+        this.list[this.index] = this.contact;
+      }
+      localStorage.setItem("contacts", JSON.stringify(this.list));
+      this.contact = { id: 0, name: null, telephone: null };
+    },
+
+    remove(item) {
+      const idx = this.list.indexOf(item);
+      this.list.splice(idx, 1);
+      localStorage.setItem("contacts", JSON.stringify(this.list));
+    },
+
+    edit(item) {
+      this.index = this.list.indexOf(item);
+      this.contact = Object.assign({}, item);
+      localStorage.setItem("contacts", JSON.stringify(this.list));
     },
   },
-  methods: {
-    limparFiltro() {
-      this.search = "";
-      this.selected = null;
-    },
+
+  mounted() {
+    const contacts = JSON.parse(localStorage.getItem("contacts"));
+    this.list = contacts ? contacts : [];
   },
 };
 </script>
