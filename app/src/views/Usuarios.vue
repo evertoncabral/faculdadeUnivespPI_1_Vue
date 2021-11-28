@@ -65,6 +65,8 @@
       <input type="number" v-model="contact.telephone" />
       <label>Função</label>
       <input type="text" v-model="contact.funcao"  placeholder="Aluno / Professor"/>
+      <label>Relacionamento</label>
+      <input type="text" v-model="contact.relacionamento" placeholder="Aluno de: " />
 
       <button class="mt-3 mb-3 btn btn-primary" @click="add()">
         Adicionar
@@ -78,6 +80,7 @@
           <th scope="col">Nome</th>
           <th scope="col">Telefone</th>
           <th scope="col">Função</th>
+            <th scope="col">Relacionamento</th>
           <th scope="col">Ação</th>
         </tr>
       </thead>
@@ -87,6 +90,7 @@
           <td>{{ item.name }}</td>
           <td>{{ item.telephone }}</td>
           <td>{{ item.funcao }}</td>
+            <td>{{ item.relacionamento }}</td>
           <td>
             <button @click="edit(item)" class="btn btn-info">Editar</button>
             <button @click="remove(item)" class="btn btn-danger">
@@ -110,6 +114,7 @@ export default {
         name: null,
         telephone: null,
         funcao: null,
+        relacionamento:null,
       },
       index: null,
       list: [],
