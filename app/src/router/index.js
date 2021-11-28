@@ -6,6 +6,8 @@ import Sobre from "../views/Sobre.vue";
 import Form from "../views/Form.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
+import PubFeed from "../views/PubFeed.vue"
+import Feed from "../views/Feed.vue"
 
 Vue.use(VueRouter);
 
@@ -18,7 +20,17 @@ const routes = [
   {
     path: "/register",
     name: "register",
-    component: Register
+    component: Register,
+  },
+  {
+    path: "/feed",
+    name: "feed",
+    component: Feed,
+  },
+  {
+    path: "/pubFeed",
+    name: "pubFeed",
+    component: PubFeed,
   },
   {
     path: "/form",

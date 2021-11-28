@@ -5,3 +5,9 @@ export default class Tasks extends Model {
     return "tasks";
   }
 }
+
+export default class Tasks1 extends Model {
+  resource() {
+    return "tasks1";
+  }
+}
